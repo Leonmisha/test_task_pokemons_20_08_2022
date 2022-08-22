@@ -23,7 +23,7 @@ const PokemonsList = (props: PokemonsListProps) => {
     const filteredList = useMemo(
         () => (
             filterName
-                ? list.filter(pokemon => pokemon.name.includes(filterName))
+                ? list.filter(pokemon => pokemon.name.includes(filterName.toLowerCase()))
                 : list
         ),
         [filterName, list]
