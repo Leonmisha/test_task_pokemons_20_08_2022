@@ -1,7 +1,19 @@
-# Getting Started with Create React App
+# test_task_pokemons_20_08_2022
+# Deploy: https://leonmisha.github.io/test_task_pokemons_20_08_2022/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# ТЗ
+```
+Реалізувати сайт з покемонами джерело - https://pokeapi.co/
+На сторінці з покемонами мають бути обов'язково:
+- пошук за іменем
+- сортування по типу
+- відображення у форматі списку (або плитки) усіх покемонів, при натисканні має відкриватись детальна інформація
+- у детальній інформації - обов'язкові поля - ім'я, зображення (фронт), вміння - moves, stats - пагінація (можна по прокрутці або посторінково) - адаптивна верстка, анімації та переходи як побажання
+
+Технології, обов'язкові до використання - React, es-lint (можна будь-який на вибір), axios, redux (без інструментів) + thunk, sass/scss. Можна використовувати інші бібліотеки - material-ui, bootstrap і т.д. Буде плюсом – використання кастомних хуків, юніт-тести, типізація.
+```
 ## Available Scripts
 
 In the project directory, you can run:
@@ -16,8 +28,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There are no tests yet
 
 ### `npm run build`
 
