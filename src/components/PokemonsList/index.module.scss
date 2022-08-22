@@ -1,0 +1,19 @@
+.card {
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: lightgray;
+  cursor: pointer;
+
+  &:hover {
+    scale: 105%;
+    outline: green solid 3px;
+    transition: scale 0.5s;
+  }
+}
+
+.empty, .card {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
