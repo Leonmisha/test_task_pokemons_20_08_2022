@@ -7,13 +7,19 @@ const initState = {
 }
 
 const mergeTo = (from: any, to: any) => {
-    const result = { ...to }
-    Object.keys(from).forEach(entity => {
-        result[from] = {
-            ...to[from],
-            ...from[entity],
+    const result: Record<string, any> = { }
+    Object.keys(from).forEach(id => {
+        result[id] = {
+            ...to[id],
+            ...from[id],
         }
     });
+    Object.keys(to).forEach(id => {
+        result[id] = {
+            ...to[id],
+            ...from[id],
+        }
+    })
 
     return result;
 }
@@ -23,12 +29,12 @@ const main = (state = initState, action: any) => {
         case ENTITIES.ADD_POKEMONS:
             return {
                 ...state,
-                pokemons: mergeTo(state.pokemons, action.payload.pokemonsList),
+                pokemons: mergeTo(action.payload.pokemonsList, state.pokemons),
             }
         case ENTITIES.ADD_TYPES:
             return {
                 ...state,
-                types: mergeTo(state.types, action.payload.typesList),
+                types: mergeTo(action.payload.typesList, state.types),
             }
         case ENTITIES.SET_POKEMON_DETAILED: {
             return {
