@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/test_task_pokemons_20_08_2022/static/css/main.4b0e4e28.css",
+    "main.js": "/test_task_pokemons_20_08_2022/static/js/main.28227ae1.js",
+    "index.html": "/test_task_pokemons_20_08_2022/index.html",
+    "main.4b0e4e28.css.map": "/test_task_pokemons_20_08_2022/static/css/main.4b0e4e28.css.map",
+    "main.28227ae1.js.map": "/test_task_pokemons_20_08_2022/static/js/main.28227ae1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b0e4e28.css",
+    "static/js/main.28227ae1.js"
+  ]
+}
