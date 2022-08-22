@@ -1,0 +1,18 @@
+.avatar {
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+}
+
+.tabs{
+  position: absolute;
+  right: 0;
+  &__elem {
+    padding: 10px 5px;
+    cursor: pointer;
+    background-color: cornflowerblue;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}

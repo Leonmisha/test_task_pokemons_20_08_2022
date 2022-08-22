@@ -1,11 +1,12 @@
 import React from 'react';
 import Main from "./appearances/Main";
+import PokemonDetailed from "./appearances/PokemonDetailed";
 
 const App = () => {
   return (
     <div className="container">
       <Main />
-      {/*<Modal></Modal>*/}
+      <PokemonDetailed />
     </div>
   );
 }

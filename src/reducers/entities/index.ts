@@ -2,6 +2,7 @@ import ENTITIES from "./actions";
 
 const initState = {
     pokemons: {},
+    pokemonsDetailed: {},
     types: {}
 }
 
@@ -29,6 +30,15 @@ const main = (state = initState, action: any) => {
                 ...state,
                 types: mergeTo(state.types, action.payload.typesList),
             }
+        case ENTITIES.SET_POKEMON_DETAILED: {
+            return {
+                ...state,
+                pokemonsDetailed: {
+                    ...state.pokemonsDetailed,
+                    [action.payload.id]: action.payload.pokemon,
+                }
+            }
+        }
         default:
             return state;
     }

@@ -1,0 +1,25 @@
+.moves {
+  border-radius: 10px;
+  background: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 1.4em;
+  }
+
+  &__items {
+    align-self: stretch;
+    margin: 0 5px;
+  }
+
+  &__item {
+    padding: 3px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background: lightblue;
+    }
+  }
+}

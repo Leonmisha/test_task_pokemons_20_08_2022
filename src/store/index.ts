@@ -9,7 +9,4 @@ const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
 
-// @ts-ignore
-window.store = store;
-
 export default store;

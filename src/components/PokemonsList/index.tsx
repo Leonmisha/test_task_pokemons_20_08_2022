@@ -8,6 +8,7 @@ export interface PokemonsListProps {
     filters: {
         name: string,
     }
+    onClick: Function;
 }
 
 const PokemonsList = (props: PokemonsListProps) => {
@@ -16,6 +17,7 @@ const PokemonsList = (props: PokemonsListProps) => {
         filters: {
             name: filterName
         },
+        onClick,
     } = props;
 
     const filteredList = useMemo(
@@ -32,7 +34,7 @@ const PokemonsList = (props: PokemonsListProps) => {
             <Row>
                 {filteredList.length
                     ? filteredList.map(pokemon => (
-                        <Col xs={6} md={4} key={pokemon.id} className={styles.card}>
+                        <Col xs={6} md={4} key={pokemon.id} className={styles.card} onClick={() => onClick(pokemon)}>
                           {pokemon.name}
                         </Col>
                         )

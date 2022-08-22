@@ -41,7 +41,7 @@ const Filters = () => {
                     <Form.Select id="type" value={filters.type} onChange={handleChangeType}>
                         <option value=''>Any type</option>
                         {mapTypes.map((type: any) => (
-                            <option value={type.name}>
+                            <option value={type.name} key={type.name}>
                                 {type.name}
                             </option>
                         ))}

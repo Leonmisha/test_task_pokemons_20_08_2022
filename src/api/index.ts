@@ -69,3 +69,9 @@ export const getPokemonTypes = async () => {
         return err;
     }
 }
+
+export const getPokemon = async (name: string) => {
+    const responseFromServer = await api.getPokemonByName(name);
+
+    return responseFromServer;
+};
