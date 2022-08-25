@@ -6,13 +6,33 @@
 }
 
 .tabs{
-  position: absolute;
-  right: 0;
+  position: relative;
+
   &__elem {
+    position: absolute;
+    right: 0;
     padding: 10px 5px;
+    border: 1px solid lightgray;
     cursor: pointer;
-    background-color: cornflowerblue;
-    writing-mode: vertical-rl;
+    color: cornflowerblue;
+    writing-mode: vertical-lr;
     text-orientation: mixed;
+    text-align: center;
+    height: 90px;
+
+    &:nth-child(2) {
+      top: 90px;
+    }
+
+    &_active {
+      background-color: cornflowerblue;
+      color: white;
+    }
   }
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }

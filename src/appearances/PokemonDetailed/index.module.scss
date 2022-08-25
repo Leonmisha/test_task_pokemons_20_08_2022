@@ -1,0 +1,20 @@
+.modal {
+
+  &__title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__dialog {
+    height: 93%;
+
+    @media screen and (max-height: 700px) {
+      height: auto;
+    }
+  }
+
+  &__content {
+    height: 100%;
+  }
+}

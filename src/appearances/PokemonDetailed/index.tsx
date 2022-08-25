@@ -1,10 +1,11 @@
 import { useCallback } from "react";
 import { currentPokemonSelector, currentPokemonNameSelector, isLoadingSelector } from "./selectors";
 import useSelector from "../../reactReduxConnector/hooks/useSelector";
-import { Alert, Button, Modal } from "react-bootstrap";
+import { Alert, Button, Modal, Spinner } from "react-bootstrap";
 import CardInfo from "./CardInfo";
 import useDispatch from "../../reactReduxConnector/hooks/useDispatch";
 import { closePokemonDetailed } from "./actions";
+import styles from './index.module.scss';
 
 const PokemonDetailed = () => {
     const dispatch = useDispatch();
@@ -23,12 +24,18 @@ const PokemonDetailed = () => {
     }
 
     return (
-        <Modal show>
+        <Modal show dialogClassName={styles.modal__dialog} contentClassName={styles.modal__content}>
             <Modal.Header closeButton={!isLoading} onHide={handleClose}>
-                <Modal.Title>{currentPokemon?.name || pokemonName}</Modal.Title>
+                <Modal.Title className={styles.modal__title}>{currentPokemon?.name || pokemonName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {isLoading && <Alert>Loading...</Alert>}
+                {isLoading && <Alert><Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                /> Loading...</Alert>}
                 {currentPokemon && <CardInfo currentPokemon={currentPokemon} />}
             </Modal.Body>
             <Modal.Footer>

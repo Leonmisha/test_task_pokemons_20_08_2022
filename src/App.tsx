@@ -4,7 +4,7 @@ import PokemonDetailed from "./appearances/PokemonDetailed";
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="container app">
       <Main />
       <PokemonDetailed />
     </div>

@@ -39,9 +39,9 @@ const StatsList = (props: StatsListProps) => {
 
 
 
-    return <div>
+    return <div className={styles.stats}>
         <div className={styles.stats__title}>Stats</div>
-        <Container className="justify-content-md-center">
+        <Container className={styles.stats__items}>
             <Row>
                 {localList.map( stat => (
                         <Col xs={3} md={3} key={stat.name} className={styles.stats_item}>

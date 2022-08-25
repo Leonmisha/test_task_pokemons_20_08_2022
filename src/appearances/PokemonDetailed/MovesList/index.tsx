@@ -1,37 +1,41 @@
 import { PokemonMove } from "pokenode-ts";
-import Pagination from 'react-bootstrap/Pagination';
+import PaginationList from "components/PagionationList";
 import styles from './index.module.scss';
-import { useState } from "react";
+import React, { EffectCallback, ForwardedRef, useEffect } from "react";
 
 interface MovesListProps {
     list: PokemonMove[],
     movesPerPage: number,
+    onMount?: EffectCallback,
 }
 
-const MovesList = (props: MovesListProps) => {
-    const { list, movesPerPage } = props;
-    const [currentPage, setCurrentPage] = useState(0);
+const MovesList = React.forwardRef((props: MovesListProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const {
+        list,
+        movesPerPage,
+        onMount = () => {},
+    } = props;
 
-    const pagesLength = Math.ceil(list.length / movesPerPage);
-    const paginationItems = Array(pagesLength).fill(0).map((_, index) => (
-            <Pagination.Item key={index} active={index === currentPage} onClick={() => setCurrentPage(index)}>
-                {index+1}
-            </Pagination.Item>
-    ));
+    useEffect(onMount, [onMount])
 
+    return (
+        <div ref={ref} className={styles.moves}>
+            <div className={styles.moves__title}>Moves</div>
+            <div className={styles.moves__list}>
+                <PaginationList<PokemonMove> list={list} itemsPerPage={movesPerPage}>
+                    {(currentItems) => (
+                        <div className={styles.moves__items}>
+                            {currentItems.map(movesContainer => {
+                                    const moveName = movesContainer.move.name;
 
-
-    const moves = list.slice(currentPage * movesPerPage, (currentPage+1) * movesPerPage).map(movesContainer => {
-        const moveName = movesContainer.move.name;
-
-        return <div key={moveName} className={styles.moves__item}>{moveName}</div>
-    })
-
-    return <div className={styles.moves}>
-        <div className={styles.moves__title}>Moves</div>
-        <div className={styles.moves__items}>{moves}</div>
-        <Pagination>{paginationItems}</Pagination>
-    </div>
-}
+                                    return <div key={ moveName } className={ styles.moves__item }>{ moveName }</div>
+                            })}
+                        </div>
+                    )}
+                </PaginationList>
+            </div>
+        </div>
+    );
+});
 
 export default MovesList;
