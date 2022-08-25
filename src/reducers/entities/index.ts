@@ -7,18 +7,20 @@ const initState = {
 }
 
 const mergeTo = (from: any, to: any) => {
-    const result: Record<string, any> = { }
+    const toCopy = { ...to };
+    const result: Record<string, any> = { };
     Object.keys(from).forEach(id => {
         result[id] = {
-            ...to[id],
+            ...toCopy[id],
             ...from[id],
-        }
+        };
+        delete toCopy[id];
     });
-    Object.keys(to).forEach(id => {
+    Object.keys(toCopy).forEach(id => {
         result[id] = {
-            ...to[id],
+            ...toCopy[id],
             ...from[id],
-        }
+        };
     })
 
     return result;
